@@ -1,0 +1,22 @@
+.contactItem {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    height: 80px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(180, 190, 195);
+    box-shadow: 4px 4px 4px rgb(63, 78, 83);
+  }
+  
+  .contactList {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-wrap: wrap;
+    width: 1200px;
+    margin: 0 auto;
+  }

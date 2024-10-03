@@ -1,39 +1,44 @@
-import Modal from "react-modal";
+import Modal from 'react-modal';
+
 
 const ImageModal = ({ modalIsOpen, closeModal, imageModal }) => {
-  const customStyle = {
+  const customStyles = {
     overlay: {
-      position: "fixed",
+      position: 'fixed',
       top: 0,
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: "rgba(1, 1, 1, 0.9)",
+      backgroundColor: 'rgba(1, 1, 1, 0.9)',
     },
     content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
       with: 1400,
       height: 802,
       padding: 0,
     },
   };
 
-  Modal.setAppElement("#root");
+  Modal.setAppElement('#root');
   return (
     <div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyle}
-        contentLabel="Image Modal"
+        style={customStyles}
+        contentLabel='Image Modal'
       >
         <div>
-          <img src={imageModal.url} alt={imageModal.name} />
+          <img
+         
+            src={imageModal.url}
+            alt={imageModal.name}
+          />
         </div>
       </Modal>
     </div>

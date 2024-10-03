@@ -1,22 +1,22 @@
-import toast, { Toaster } from "react-hot-toast";
-import SearchBar from "./components/SearchBar/SearchBar";
-import { fetchArticles } from "./services/api";
-import ImageGallery from "./components/ImageGallery/ImageGallery";
-import { useEffect, useState } from "react";
-import Loader from "./components/Loader/Loader";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
-import ImageModal from "./components/ImageModal/ImageModal";
+import toast, { Toaster } from 'react-hot-toast';
+import SearchBar from './components/SearchBar/SearchBar';
+import { fetchArticles } from './services/api';
+import ImageGallery from './components/ImageGallery/ImageGallery';
+import { useEffect, useState } from 'react';
+import Loader from './components/Loader/Loader';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
+import ImageModal from './components/ImageModal/ImageModal';
 
 function App() {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const [dataImage, setDataImage] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoader, setIsLoader] = useState(false);
   const [getErr, setGetErr] = useState(false);
   const [maxPage, setMaxPage] = useState(0);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [imageModal, setImageModal] = useState("");
+  const [imageModal, setImageModal] = useState('');
 
   useEffect(() => {
     if (!searchValue) {
@@ -41,42 +41,55 @@ function App() {
     getData();
   }, [page, searchValue]);
 
-  function openModal(imagesUrl) {
-    setImageModal(imagesUrl);
+  function openModal(imgUrl) {
+    setImageModal(imgUrl);
     setIsOpenModal(true);
   }
+
   function closeModal() {
     setIsOpenModal(false);
   }
 
   const getNotFaundData = () => {
-    return toast("Data is not found", {
-      icon: "😥",
-      style: { borderRadius: "10px", background: "#948", color: "#fff" },
+    return toast('The data for your request was not found', {
+      icon: '😥',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
     });
   };
 
-  const getSubmitValue = (value) => {
+  const getSubmitValue = value => {
     setSearchValue(value);
     setDataImage([]);
     setPage(1);
   };
 
   const getLoadMoreImg = () => {
-    setPage((prev) => prev + 1);
+    setPage(prev => prev + 1);
   };
 
   return (
     <>
       <SearchBar onSubmit={getSubmitValue} />
       {isLoader && <Loader />}
-      {dataImage.length > 0 && <ImageGallery dataImage={dataImage} openModal={openModal} />}
-      {dataImage.length > 0 && maxPage > page && <LoadMoreBtn loadMore={getLoadMoreImg} />}
+      {dataImage.length > 0 && (
+        <ImageGallery dataImage={dataImage} openModal={openModal} />
+      )}
+      {dataImage.length > 0 && maxPage > page && (
+        <LoadMoreBtn loadMore={getLoadMoreImg} />
+      )}
       {getErr && <ErrorMessage />}
-      <ImageModal modalIsOpen={isOpenModal} closeModal={closeModal} imageModal={imageModal} />
-      <Toaster position="top-center" reverseOrder={false} />
+      <ImageModal
+        modalIsOpen={isOpenModal}
+        closeModal={closeModal}
+        imageModal={imageModal}
+      />
+      <Toaster position='top-center' reverseOrder={false} />
     </>
   );
 }
 
-export default App
+export default App;

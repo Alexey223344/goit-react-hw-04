@@ -1,12 +1,12 @@
 import toast, { Toaster } from "react-hot-toast";
 import SearchBar from "./components/SearchBar/SearchBar";
 import { fetchArticles } from "./services/api";
-import ImgGallers from "./components/ImgGallers/ImgGallers";
+import ImageGallery from "./components/ImageGallery/ImageGallery";
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader/Loader";
-import ErrorMsg from "./components/ErrorMsg/ErrorMsg";
-import LoadMoreButton from "./components/LoadMoreButton/LoadMoreButton";
-import ImgModal from "./components/ImgModal/ImgModal";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "./components/ImageModal/ImageModal";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -70,10 +70,10 @@ function App() {
     <>
       <SearchBar onSubmit={getSubmitValue} />
       {isLoader && <Loader />}
-      {dataImage.length > 0 && <ImgGallers dataImage={dataImage} openModal={openModal} />}
-      {dataImage.length > 0 && maxPage > page && <LoadMoreButton loadMore={getLoadMoreImg} />}
-      {getErr && <ErrorMsg />}
-      <ImgModal modalIsOpen={isOpenModal} closeModal={closeModal} imageModal={imageModal} />
+      {dataImage.length > 0 && <ImageGallery dataImage={dataImage} openModal={openModal} />}
+      {dataImage.length > 0 && maxPage > page && <LoadMoreBtn loadMore={getLoadMoreImg} />}
+      {getErr && <ErrorMessage />}
+      <ImageModal modalIsOpen={isOpenModal} closeModal={closeModal} imageModal={imageModal} />
       <Toaster position="top-center" reverseOrder={false} />
     </>
   );

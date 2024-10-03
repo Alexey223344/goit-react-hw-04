@@ -1,10 +1,10 @@
-import ImgCard from "../ImgCard/ImgCard";
+import ImageCard from "../ImageCard/ImageCard";
 
 const ImgGallers = ({ dataImg, openModal }) => {
   return (
     <div>
       {Array.isArray(dataImg) && dataImg.length > 0 ? (
-        dataImg.map((item) => <ImgCard key={item.id} dataImage={item} openModal={openModal} />)
+        dataImg.map((item) => <ImageCard key={item.id} dataImage={item} openModal={openModal} />)
       ) : (
         <p>No images</p>
       )}

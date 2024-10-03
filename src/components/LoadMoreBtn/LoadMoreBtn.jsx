@@ -1,4 +1,4 @@
-const LoadMoreButton = ({ loadMore }) => {
+const LoadMoreBtn = ({ loadMore }) => {
   const handleLoadMore = () => {
     loadMore();
   };
@@ -8,4 +8,4 @@ const LoadMoreButton = ({ loadMore }) => {
     </div>
   );
 };
-export default LoadMoreButton;
+export default LoadMoreBtn;

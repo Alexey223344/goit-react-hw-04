@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 
-const ImgModal = ({ modalIsOpen, closeModal, imageModal }) => {
+const ImageModal = ({ modalIsOpen, closeModal, imageModal }) => {
   const customStyle = {
     overlay: {
       position: "fixed",
@@ -39,4 +39,4 @@ const ImgModal = ({ modalIsOpen, closeModal, imageModal }) => {
     </div>
   );
 };
-export default ImgModal;
+export default ImageModal;

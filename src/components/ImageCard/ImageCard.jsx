@@ -1,5 +1,5 @@
 
-  const ImgCard = ({ dataImg, openModal }) => {
+  const ImageCard = ({ dataImg, openModal }) => {
       const { urls, description, likes } = dataImg;
 
   return (
@@ -17,4 +17,4 @@
     </li>
   );
 };
-export default ImgCard;
+export default ImageCard;
